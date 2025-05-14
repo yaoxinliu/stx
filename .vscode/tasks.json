@@ -1,0 +1,115 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "build cpp/hello",
+            "command": "clang++",
+            "args": [
+                "-std=c++2c",
+                "-stdlib=libc++",
+                "-stdlib++-isystem",
+                "/usr/include/c++/v1",
+                "-I/usr/include/c++/v1",
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-march=native",
+                "-pthread",
+                "-D_FILE_OFFSET_BITS=64",
+                "-D_TIME_BITS=64",
+                "-Wall",
+                "-Wextra",
+                "-Werror",
+                "-Wconversion",
+                "-Wold-style-cast",
+                "-Woverloaded-virtual",
+                "-Wpointer-arith",
+                "-Wshadow",
+                "-Wwrite-strings",
+                "-Wformat",
+                "-g",
+                "-pipe",
+                "-isystem/usr/include/c++/v1",
+                "-I/usr/local/c++/v1",
+                "-I/data/github/skia",
+                "-I/data/github/skia/include/core",
+                "-I/data/github/skia/include/config",
+                "-I/data/github/skia/include/images",
+                "-I${workspaceFolder}",
+                "-o",
+                "${workspaceFolder}/toy/cpp/hello/a.out",
+                "${workspaceFolder}/toy/cpp/hello/main.cpp",
+                "-fuse-ld=lld",
+                "--rtlib=compiler-rt",
+                "-lc++abi",
+                "-lunwind"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "compiler: clang++"
+        },
+        {
+            "type": "cppbuild",
+            "label": "build cpp/world",
+            "command": "clang++",
+            "args": [
+                "-std=c++2c",
+                "-stdlib=libc++",
+                "-stdlib++-isystem",
+                "/usr/include/c++/v1",
+                "-I/usr/include/c++/v1",
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-march=native",
+                "-pthread",
+                "-D_FILE_OFFSET_BITS=64",
+                "-D_TIME_BITS=64",
+                "-Wall",
+                "-Wextra",
+                "-Werror",
+                "-Wconversion",
+                "-Wold-style-cast",
+                "-Woverloaded-virtual",
+                "-Wpointer-arith",
+                "-Wshadow",
+                "-Wwrite-strings",
+                "-Wformat",
+                "-g",
+                "-pipe",
+                "-isystem/usr/include/c++/v1",
+                "-I/usr/local/c++/v1",
+                "-I/data/github/skia",
+                "-I/data/github/skia/include/core",
+                "-I/data/github/skia/include/config",
+                "-I/data/github/skia/include/images",
+                "-I${workspaceFolder}",
+                "-o",
+                "${workspaceFolder}/toy/cpp/world/a.out",
+                "${workspaceFolder}/toy/cpp/world/main.cpp",
+                "-fuse-ld=lld",
+                "--rtlib=compiler-rt",
+                "-lc++abi",
+                "-lunwind"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "compiler: clang++"
+        }
+    ]
+}

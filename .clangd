@@ -1,0 +1,105 @@
+# .clangd is a YAML file.
+# Docs: https://clangd.llvm.org/config
+
+If:
+  PathMatch:
+    - .*\.h
+    - .*\.hh
+    - .*\.hpp
+    - .*\.hxx 
+    - .*\.c 
+    - .*\.cc 
+    - .*\.cpp
+    - .*\.cxx
+
+CompileFlags:
+  Add:
+    - -std=c++2c
+    - -stdlib=libc++
+    - -isystem/usr/include/c++/v1
+    - -g
+    - -pipe
+    - -m64
+    - -mavx2 
+    - -pthread
+    - -D_FILE_OFFSET_BITS=64
+    - -D_TIME_BITS=64
+    - -Wall
+    - -Wextra
+    - -Werror
+    - -Wconversion
+    - -Wold-style-cast
+    - -Woverloaded-virtual
+    - -Wpointer-arith
+    - -Wshadow
+    - -Wwrite-strings
+    - -Wformat
+    - -isystem/usr/include/c++/v1
+    - -isystem/usr/include/x86_64-linux-gnu
+    - -isystem/data/rtsu/cpp23
+    - -isystem/usr/include
+    - -isystem/data/3rd/folly/include
+    - -isystem/usr/local/include/concurrentqueue    
+    - -I/data/github/skia
+    - -I/data/github/skia/include/core
+    - -I/data/github/skia/include/config
+    - -I/data/github/skia/include/images
+
+HeaderFilter: ".*"
+
+Diagnostics:
+  Suppress: pragma-pack
+  UnusedIncludes: Strict
+  MissingIncludes: true
+  ClangTidy:
+    Add: 
+      - "*"
+    Remove: 
+      - altera-struct-pack-align
+      - altera-unroll-loops
+      - bugprone-branch-clone
+      - bugprone-easily-swappable-parameters
+      - bugprone-not-null-terminated-result
+      - cert-env33-c
+      - cert-dcl58-cpp
+      - cert-err58-cpp      
+      - cppcoreguidelines-avoid-c-arrays
+      - cppcoreguidelines-avoid-do-while
+      - cppcoreguidelines-avoid-magic-numbers
+      - cppcoreguidelines-avoid-non-const-global-variables
+      - cppcoreguidelines-macro-usage
+      - cppcoreguidelines-owning-memory
+      - cppcoreguidelines-pro-bounds-constant-array-index
+      - cppcoreguidelines-pro-bounds-pointer-arithmetic
+      - cppcoreguidelines-pro-type-const-cast
+      - concurrency-mt-unsafe
+      - fuchsia-default-arguments-calls
+      - fuchsia-statically-constructed-objects
+      - fuchsia-trailing-return
+      - fuchsia-overloaded-operator
+      - google-readability-function-size
+      - google-readability-todo
+      - hicpp-named-parameter
+      - hicpp-avoid-c-arrays
+      - hicpp-exception-baseclass
+      - hicpp-function-size
+      - hicpp-uppercase-literal-suffix
+      - llvmlibc-*
+      - llvm-include-order
+      - misc-non-private-member-variables-in-classes
+      - modernize-avoid-c-arrays
+      - modernize-concat-nested-namespaces
+      - modernize-return-braced-init-list
+      - modernize-use-trailing-return-type
+      - readability-container-data-pointer
+      - readability-function-cognitive-complexity
+      - readability-function-size 
+      - readability-identifier-length
+      - readability-implicit-bool-conversion
+      - readability-magic-numbers
+      - readability-named-parameter
+      - readability-simplify-boolean-expr
+      - readability-uppercase-literal-suffix
+    CheckOptions:
+      readability-magic-numbers.IgnoreUserDefinedLiterals: true
+      cppcoreguidelines-avoid-magic-numbers.IgnoreUserDefinedLiterals: true
